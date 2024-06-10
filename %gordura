@@ -1,0 +1,43 @@
+def calcular_percentual_gordura(peitoral, cintura, quadril, braco, altura):
+    bf_percentual = (peitoral + cintura + quadril + braco - altura) * 0.087 + 5.4
+    return bf_percentual
+
+def calcular_peso_desejado(lbm, bf_desejado):
+    return lbm / (1 - bf_desejado)
+
+def main():
+    print("Calculadora de Percentual de Gordura Corporal")
+
+    peitoral = float(input("Digite a medida do peit  oral (em cm): "))
+    cintura = float(input("Digite a medida da cintura (em cm): "))
+    quadril = float(input("Digite a medida do quadril (em cm): "))
+    braco_direito = float(input("Digite a medida do braço direito (em cm): "))
+    braco_esquerdo = float(input("Digite a medida do braço esquerdo (em cm): "))
+    altura = float(input("Digite a altura (em cm): "))
+    peso_atual = float(input("Digite o peso atual (em kg): "))
+
+    braco = (braco_direito + braco_esquerdo) / 2
+
+    percentual_gordura_atual = calcular_percentual_gordura(peitoral, cintura, quadril, braco, altura)
+    lbm_atual = peso_atual * (1 - percentual_gordura_atual / 100)
+
+    print(f"O seu percentual de gordura corporal estimado é: {percentual_gordura_atual:.2f}%")
+
+    if percentual_gordura_atual > 25:
+        peso_desejado_25 = calcular_peso_desejado(lbm_atual, 0.25)
+        print(f"Para atingir 25% de gordura corporal, você deve pesar aproximadamente: {peso_desejado_25:.2f} kg")
+    if percentual_gordura_atual > 20:
+        peso_desejado_20 = calcular_peso_desejado(lbm_atual, 0.20)
+        print(f"Para atingir 20% de gordura corporal, você deve pesar aproximadamente: {peso_desejado_20:.2f} kg")
+    if percentual_gordura_atual > 15:
+        peso_desejado_15 = calcular_peso_desejado(lbm_atual, 0.15)
+        print(f"Para atingir 15% de gordura corporal, você deve pesar aproximadamente: {peso_desejado_15:.2f} kg")
+    if percentual_gordura_atual > 10:
+        peso_desejado_10 = calcular_peso_desejado(lbm_atual, 0.10)
+        print(f"Para atingir 10% de gordura corporal, você deve pesar aproximadamente: {peso_desejado_10:.2f} kg")
+    if percentual_gordura_atual > 5:
+        peso_desejado_05 = calcular_peso_desejado(lbm_atual, 0.05)
+        print(f"Para atingir 5% de gordura corporal, você deve pesar aproximadamente: {peso_desejado_05:.2f} kg")
+
+if __name__ == "__main__":
+    main()
