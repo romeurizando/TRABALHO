@@ -3,7 +3,7 @@ import getpass
 def get_payment_info():
     payment_data = {}
 
-    payment_method = input("Escolha o método de pagamento (Cartão de Crédito ou Pix): ").strip().lower()
+    payment_method = input("Escolha o método de pagamento seu metodo de pagamento Cartão de Crédito ou Pix: ").strip().lower()
 
     if payment_method == "cartão de crédito":
         payment_data["Número do Cartão"] = input("Número do Cartão: ").strip()

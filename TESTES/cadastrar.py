@@ -38,8 +38,8 @@ def listar_produtos():
     produtos = cursor.fetchall()
     
     for produto in produtos:
-        preco_formatado = f"R${produto[2]:.2f}"
-        print(f"ID: {produto[0]}, Nome: {produto[1]}, Preço: R${preco_formatado}, Quantidade: {produto[3]}")
+        preco_formatado = f"{produto[2]:.2f}"
+        print(f"ID: {produto[0]}, Nome: {produto[1]}, Preço: {preco_formatado}, Quantidade: {produto[3]}")
     
     conn.close()
 
